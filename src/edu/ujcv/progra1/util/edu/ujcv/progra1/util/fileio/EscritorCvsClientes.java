@@ -13,10 +13,9 @@ public class EscritorCvsClientes {
     private static final String NEW_LINE_SEPARATOR = "\n";
 
     //CSV file header
-    private static final String FILE_HEADER = "idendtidad,primerNombre,primerApellido, codigoCliente";
+    private static final String FILE_HEADER = "identidad,primerNombre,primerApellido, codigoCliente";
 
     public static void writeCsvFile(String fileName, ArrayList<Cliente> clientes) {
-
 
 
         FileWriter fileWriter = null;
