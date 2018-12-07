@@ -19,6 +19,8 @@ public class Main {
         menuItems.add(new Test1());
         menuItems.add(new Test1());
         menuItems.add(new Test1());
+        menuItems.add(new Test1());
+        menuItems.add(new Test1());
         Menu menu = new Menu(menuItems);
         menu.mostrarMenu();
         ArrayList<Cliente> clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
