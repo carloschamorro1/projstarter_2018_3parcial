@@ -22,7 +22,6 @@ public class LectorCvsCliente {
 
         BufferedReader fileReader = null;
         ArrayList<Cliente> clientes = new ArrayList();
-
         try {
 
             String line = "";
