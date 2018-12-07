@@ -1,26 +1,28 @@
 package edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio;
 
-import edu.ujcv.progra1.edu.ujcv.progra1.models.Cliente;
+import edu.ujcv.progra1.edu.ujcv.progra1.models.Productos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LectorCvsCliente {
+public class LectorCvsProductos {
     //Delimiter used in CSV file
     private static final String COMMA_DELIMITER = ";";
 
     //Student attributes index
-    private static final int CLIENT_ID_IDX = 0;
-    private static final int CLIENT_FNAME_IDX = 1;
-    private static final int CLIENT_LNAME_IDX = 2;
-    private static final int CLIENT_CODCLIE_IDX = 3;
+    private static final int CLIENT_CODPRO_IDX = 0;
+    private static final int CLIENT_PRONAME_IDX = 1;
+    private static final int CLIENT_TPRO_IDX = 2;
+    private static final int CLIENT_MAPRO_IDX = 3;
+    private static final int CLIENT_PREPRO_IDX = 4;
 
-    public static ArrayList<Cliente> readCsvFile(String fileName) {
+
+    public static ArrayList<Productos> readCsvFile(String fileName) {
 
         BufferedReader fileReader = null;
-        ArrayList<Cliente> clientes = new ArrayList();
+        ArrayList<Productos> productos = new ArrayList();
         try {
 
             String line = "";
@@ -37,8 +39,8 @@ public class LectorCvsCliente {
                 String[] tokens = line.split(COMMA_DELIMITER);
                 if (tokens.length > 0) {
                     //Create a new student object and fill his  data
-                    Cliente cliente = new Cliente(tokens[CLIENT_ID_IDX], tokens[CLIENT_FNAME_IDX], tokens[CLIENT_LNAME_IDX], tokens[CLIENT_CODCLIE_IDX]);
-                    clientes.add(cliente);
+                    Productos producto = new Productos(tokens[CLIENT_CODPRO_IDX], tokens[CLIENT_PRONAME_IDX], tokens[CLIENT_TPRO_IDX], tokens[CLIENT_MAPRO_IDX], tokens[CLIENT_PREPRO_IDX]);
+                    productos.add(producto);
                 }
             }
 
@@ -54,8 +56,7 @@ public class LectorCvsCliente {
                 e.printStackTrace();
             }
         }
-        return clientes;
+        return productos;
     }
-
 
 }

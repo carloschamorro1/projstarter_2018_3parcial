@@ -26,8 +26,7 @@ public class Menu {
         LectorTeclado lt = new LectorTeclado();
         int opcion =0;
         while(opcion<=0 || opcion > items.size())
-        opcion = lt.leerEntero("ingrese una opcion valida","vuelva intentar");
-
+        opcion = lt.leerEntero("Ingrese una opcion valida","vuelva intentar");
         items.get(opcion-1).runAction();
 
     }
