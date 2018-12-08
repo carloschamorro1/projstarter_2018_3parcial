@@ -13,14 +13,6 @@ public class Menu {
 
     public void mostrarMenu() {
         int opcion = 1;
-//        ArrayList<String> menuPrincipal = new ArrayList<>();
-//        menuPrincipal.add(0, "Clientes");
-//        menuPrincipal.add(1, "Productos");
-//        menuPrincipal.add(2, "Facturas");
-//        for (int i = 0; i < menuPrincipal.size(); i++) {
-//            System.out.println("" + opcion++ + ". " + menuPrincipal.get(i));
-//
-//        }
         for (IMenuItem menuItem: items) {
             System.out.println(""+ opcion++ + ". "+menuItem.getLabel());
         }

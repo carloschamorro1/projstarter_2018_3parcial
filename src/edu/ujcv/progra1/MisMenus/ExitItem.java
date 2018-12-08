@@ -7,7 +7,7 @@ import edu.ujcv.progra1.Menu.Menu;
 public class ExitItem implements IMenuItem {
     @Override
     public String getLabel() {
-        return "salir!!";
+        return "Salir!!";
     }
 
     @Override
