@@ -7,7 +7,7 @@ public class TestItem4 implements IMenuItem {
 
     @Override
     public String getLabel() {
-        return "Facturas";
+        return "Reportes";
     }
 
     @Override

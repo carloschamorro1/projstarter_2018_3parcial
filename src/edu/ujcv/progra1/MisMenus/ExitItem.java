@@ -12,6 +12,7 @@ public class ExitItem implements IMenuItem {
 
     @Override
     public void runAction() {
-        Main.valorSalida = 1;
+            Main.valorSalida = 1;
+        }
     }
-}
+

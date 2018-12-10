@@ -5,10 +5,15 @@ import edu.ujcv.progra1.util.LectorTeclado;
 import java.util.ArrayList;
 
 public class Menu {
+    public int opcion;
     private ArrayList<IMenuItem> items;
 
     public Menu(ArrayList<IMenuItem> items) {
         this.items = items;
+    }
+
+    public Menu(){
+
     }
 
     public void mostrarMenu() {

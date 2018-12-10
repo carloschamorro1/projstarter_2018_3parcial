@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class EscritorCvsProductos {
     //Delimiter used in CSV file
-    private static final String COMMA_DELIMITER = ",";
+    private static final String COMMA_DELIMITER = ";";
     private static final String NEW_LINE_SEPARATOR = "\n";
 
     //CSV file header
@@ -35,7 +35,7 @@ public class EscritorCvsProductos {
                 fileWriter.append(producto.getTipoProducto());
                 fileWriter.append(COMMA_DELIMITER);
                 fileWriter.append(producto.getMarcaProducto());
-                fileWriter.append(NEW_LINE_SEPARATOR);
+                fileWriter.append(COMMA_DELIMITER);
                 fileWriter.append(producto.getPrecioProducto());
                 fileWriter.append(NEW_LINE_SEPARATOR);
             }
