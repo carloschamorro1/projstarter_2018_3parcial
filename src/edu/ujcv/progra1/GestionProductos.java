@@ -14,7 +14,7 @@ public class GestionProductos {
 //
 //    public GestionClientes(){
 //        ArrayList<IMenuItem> itemsMenuGestionClientes = new ArrayList<>();
-//        itemsMenuGestionClientes.add(new TestItem3());
+//        itemsMenuGestionClientes.add(new MenuGestionFacturacion());
 //        itemsMenuGestionClientes.add(new ExitItem());
 //    }
 
@@ -56,7 +56,7 @@ public class GestionProductos {
             }
         }
 
-        public ArrayList<Productos> addProduct(){
+        public void addProduct(){
             LectorTeclado lt = new LectorTeclado();
             Productos datos = new Productos();
             datos.setCodigoProducto(lt.leerString("Por favor ingrese el codigo"));
@@ -66,7 +66,7 @@ public class GestionProductos {
             datos.setPrecioProducto(lt.leerString("Ingrese el precio del producto"));
             productos.add(new Productos(datos.getCodigoProducto(),datos.getNombreProducto(),datos.getTipoProducto(),datos.getMarcaProducto(),datos.getPrecioProducto()));
             EscritorCvsProductos.writeCsvFile("Productos.csv",productos);
-            return productos;
+
         }
 
         public void deleteProduct(){

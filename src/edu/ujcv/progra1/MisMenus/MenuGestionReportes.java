@@ -3,7 +3,7 @@ package edu.ujcv.progra1.MisMenus;
 import edu.ujcv.progra1.Menu.IMenuItem;
 import edu.ujcv.progra1.util.LectorTeclado;
 
-public class TestItem4 implements IMenuItem {
+public class MenuGestionReportes implements IMenuItem {
 
     @Override
     public String getLabel() {

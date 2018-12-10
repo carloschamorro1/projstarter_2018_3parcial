@@ -16,18 +16,13 @@ public class Main {
 	// write your code here
 
         ArrayList<IMenuItem> itemsMenuPrincipal = new ArrayList<>();
-        ArrayList<Productos> productosItems = new ArrayList<>();
         Menu menu = new Menu();
-
-        productosItems.add(new Productos("a","b", "c", "d","e"));
-        EscritorCvsProductos.writeCsvFile("Productos.csv",productosItems);
         itemsMenuPrincipal.add(new MenuGestionClientes());
         itemsMenuPrincipal.add(new MenuGestionProductos());
-        itemsMenuPrincipal.add(new TestItem3());
-        itemsMenuPrincipal.add(new TestItem4());
+        itemsMenuPrincipal.add(new MenuGestionFacturacion());
+        itemsMenuPrincipal.add(new MenuGestionReportes());
         itemsMenuPrincipal.add(new ExitItem());
         Menu menuPrincipal = new Menu(itemsMenuPrincipal);
-
         while (valorSalida == 0) {
             menuPrincipal.mostrarMenu();
             menuPrincipal.leerOpcionLuegoProcessar();

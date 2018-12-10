@@ -18,13 +18,13 @@ public class EscritorCvsProductos {
         FileWriter fileWriter = null;
 
         try {
-            fileWriter = new FileWriter(fileName,false);
+            fileWriter = new FileWriter(fileName,true);
 
-            //Write the CSV file header
-            fileWriter.append(FILE_HEADER);
-
-            //Add a new line separator after the header
-            fileWriter.append(NEW_LINE_SEPARATOR);
+//            //Write the CSV file header
+//            fileWriter.append(FILE_HEADER);
+//
+//            //Add a new line separator after the header
+//            fileWriter.append(NEW_LINE_SEPARATOR);
 
             //Write a new student object list to the CSV file
             for (Productos producto : productos) {
@@ -39,7 +39,6 @@ public class EscritorCvsProductos {
                 fileWriter.append(producto.getPrecioProducto());
                 fileWriter.append(NEW_LINE_SEPARATOR);
             }
-
         } catch (Exception e) {
             System.out.println("Error in CsvFileWriter !!!");
             e.printStackTrace();
@@ -54,6 +53,7 @@ public class EscritorCvsProductos {
             }
 
         }
+
     }
 
 }

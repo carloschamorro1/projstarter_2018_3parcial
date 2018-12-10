@@ -12,7 +12,7 @@ public class GestionClientes {
 //
 //    public GestionClientes(){
 //        ArrayList<IMenuItem> itemsMenuGestionClientes = new ArrayList<>();
-//        itemsMenuGestionClientes.add(new TestItem3());
+//        itemsMenuGestionClientes.add(new MenuGestionFacturacion());
 //        itemsMenuGestionClientes.add(new ExitItem());
 //    }
 
