@@ -1,16 +1,14 @@
 package edu.ujcv.progra1;
 
-import edu.ujcv.progra1.Menu.IMenuItem;
-import edu.ujcv.progra1.Menu.Menu;
-import edu.ujcv.progra1.MisMenus.ExitItem;
-import edu.ujcv.progra1.MisMenus.TestItem3;
 import edu.ujcv.progra1.edu.ujcv.progra1.models.Cliente;
 import edu.ujcv.progra1.util.LectorTeclado;
+import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.EscritorCvsClientes;
 import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.LectorCvsCliente;
 
 import java.util.ArrayList;
 
 public class GestionClientes {
+    private ArrayList<Cliente> clientes = new ArrayList<>();
 //
 //    public GestionClientes(){
 //        ArrayList<IMenuItem> itemsMenuGestionClientes = new ArrayList<>();
@@ -31,24 +29,55 @@ public class GestionClientes {
         int opcion = lt.leerEntero("Ingrese una opcion", "Ha ingresado un numero no valido");
         switch (opcion) {
             case 1:
-                ArrayList<Cliente> clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
                 System.out.println("\n La lista de cliente es:");
                 System.out.println("Identidad \t \t Primer nombre \t \t Primer Apellido \t \t Codigo");
-                for (Cliente cliente : clientes) {
-                    System.out.println(cliente.getIdentidad() + "\t \t" + cliente.getPrimerNombre() + "\t \t \t \t"
-                            + cliente.getPrimerApellido() + "\t \t \t \t" + cliente.getCodigoCliente());
-                }
+                obtenerClientes();
                 System.out.println("\n");
                 break;
             case 2:
+                addClient();
                 break;
             case 3:
                 break;
             case 4:
-                break;
-            case 5:
+                getClient();
                 break;
         }
         return opcion;
+    }
+
+    public void obtenerClientes(){
+       clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
+        for (Cliente cliente : clientes) {
+            System.out.println(cliente.getIdentidad() + "\t \t" + cliente.getPrimerNombre() + "\t \t \t \t"
+                    + cliente.getPrimerApellido() + "\t \t \t \t" + cliente.getCodigoCliente());
+        }
+    }
+
+    public ArrayList<Cliente> addClient(){
+        LectorTeclado lt = new LectorTeclado();
+        Cliente datos = new Cliente();
+        datos.setIdentidad(lt.leerString("Por favor ingrese la identidad"));
+        datos.setPrimerNombre(lt.leerString("Por favor ingrese el primer nombre"));
+        datos.setPrimerApellido(lt.leerString("Por favor ingrese el primer apellido"));
+        datos.setCodigoCliente(lt.leerString("Por favor ingrese el codigo del cliennte"));
+        clientes.add(new Cliente(datos.getIdentidad(),datos.getPrimerNombre(),datos.getPrimerApellido(), datos.getCodigoCliente()));
+        EscritorCvsClientes.writeCsvFile("Clientes.csv",clientes);
+        return clientes;
+    }
+
+    public void deleteClient(){
+        LectorTeclado lt = new LectorTeclado();
+        Cliente datos = new Cliente();
+        for (int i = 0; i < clientes.size() ; i++) {
+            System.out.println(datos.getPrimerNombre());
+        }
+    }
+
+    public void getClient(){
+        LectorTeclado lt = new LectorTeclado();
+        Cliente datos = new Cliente();
+        int num = lt.leerEntero("Escriba el indice del cliente que desea obtener", "Error ha ingresado un numero no valido");
+        System.out.println(datos.getIdentidad());
     }
 }

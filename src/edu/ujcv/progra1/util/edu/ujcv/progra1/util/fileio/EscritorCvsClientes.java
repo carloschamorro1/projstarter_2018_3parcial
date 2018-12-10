@@ -9,25 +9,26 @@ import java.util.ArrayList;
 public class EscritorCvsClientes {
 
     //Delimiter used in CSV file
-    private static final String COMMA_DELIMITER = ",";
+    private static final String COMMA_DELIMITER = ";";
     private static final String NEW_LINE_SEPARATOR = "\n";
 
     //CSV file header
-    private static final String FILE_HEADER = "identidad,primerNombre,primerApellido, codigoCliente";
+    private static final String FILE_HEADER = "idendtidad,primerNombre,primerApellido, codigoCliente";
 
     public static void writeCsvFile(String fileName, ArrayList<Cliente> clientes) {
+
 
 
         FileWriter fileWriter = null;
 
         try {
-            fileWriter = new FileWriter(fileName,false);
+            fileWriter = new FileWriter(fileName,true);
 
-            //Write the CSV file header
-            fileWriter.append(FILE_HEADER);
-
-            //Add a new line separator after the header
-            fileWriter.append(NEW_LINE_SEPARATOR);
+//            //Write the CSV file header
+//            fileWriter.append(FILE_HEADER);
+//
+//            //Add a new line separator after the header
+//            fileWriter.append(NEW_LINE_SEPARATOR);
 
             //Write a new student object list to the CSV file
             for (Cliente cliente : clientes) {

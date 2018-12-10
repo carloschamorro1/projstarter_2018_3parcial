@@ -1,20 +1,23 @@
 package edu.ujcv.progra1.MisMenus;
 
 import edu.ujcv.progra1.Menu.IMenuItem;
+import edu.ujcv.progra1.edu.ujcv.progra1.models.Productos;
 import edu.ujcv.progra1.util.LectorTeclado;
+
+import java.util.ArrayList;
 
 public class TestItem3 implements IMenuItem {
     @Override
     public String getLabel() {
-        return "Comprar";
+        return "Facturacion";
     }
 
     @Override
     public void runAction() {
-        LectorTeclado lt = new LectorTeclado();
-        int a = lt.leerEntero("ingrese entero a", "ingrese entero");
-        int b = lt.leerEntero("ingrese entero b", "ingrese entero");
-        System.out.println("el resultado es:" + (a+b) );
-
+        ArrayList<Productos> productos = new ArrayList<>();
+        int x = 0;
+        for (int i = 0; i < productos.size() ; i++) {
+            System.out.println("KKKKKKKKKKKk");
+        }
     }
 }

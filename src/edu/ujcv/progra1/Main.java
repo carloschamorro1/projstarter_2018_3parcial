@@ -22,7 +22,7 @@ public class Main {
         productosItems.add(new Productos("a","b", "c", "d","e"));
         EscritorCvsProductos.writeCsvFile("Productos.csv",productosItems);
         itemsMenuPrincipal.add(new MenuGestionClientes());
-        itemsMenuPrincipal.add(new TestItem2());
+        itemsMenuPrincipal.add(new MenuGestionProductos());
         itemsMenuPrincipal.add(new TestItem3());
         itemsMenuPrincipal.add(new TestItem4());
         itemsMenuPrincipal.add(new ExitItem());
