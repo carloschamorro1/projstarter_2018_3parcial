@@ -38,6 +38,7 @@ public class GestionClientes {
                 addClient();
                 break;
             case 3:
+                deleteClient();
                 break;
             case 4:
                 getClient();
@@ -69,8 +70,9 @@ public class GestionClientes {
     public void deleteClient(){
         LectorTeclado lt = new LectorTeclado();
         Cliente datos = new Cliente();
-        for (int i = 0; i < clientes.size() ; i++) {
-            System.out.println(datos.getPrimerNombre());
+        clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
+        for (Cliente cliente : clientes) {
+
         }
     }
 
