@@ -12,46 +12,44 @@ import java.util.Date;
 
 public class GestionFacturacion {
     ArrayList<Productos> productos = new ArrayList<>();
+    ArrayList<Productos> cantidad = new ArrayList<>();
     double subtotal = 0;
     double total = 0;
     double isv = 0;
     String nombre = "";
     String rtn = "";
+    public int opcion;
 
-    public void presentarOpciones() {
-        int opcion = 1;
+    public int presentarOpciones() {
+        int opcion1 = 1;
+        int salida = 999;
         productos = LectorCvsProductos.readCsvFile("Productos.csv");
         for (Productos producto : productos) {
-            System.out.println(opcion++ + ".........." + producto.getNombreProducto() + "\t \t \t \t" + producto.getPrecioProducto());
+            System.out.println(opcion1++ + ".........." + producto.getNombreProducto() + "\t \t \t \t" + producto.getPrecioProducto());
         }
-        System.out.println(opcion++ + ".........." + "Facturar");
+        System.out.println(salida + ".........." + "Facturar");
+        return opcion1;
     }
 
-    public void leerYprocesarOpciones() {
+    public int leerYprocesarOpciones() {
+        int salida = 999;
         LectorTeclado lt = new LectorTeclado();
-        Productos producto = new Productos();
         productos = LectorCvsProductos.readCsvFile("Productos.csv");
-        int opcion = lt.leerEntero("Ingrese una opcion", "Ha ingresado un numero no valido");
-        switch (opcion) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                do {
-                    facturar();
-                        System.out.println("Desea realizar otra compra? Escriba 1 para si y 2 para no");
-                        opcion = lt.leerEntero("Ingrese un numero", "Ha ingresado un numero no valido");
-                        if (opcion == 1){
-                            presentarOpciones();
-                            leerYprocesarOpciones();}
-                    } while (opcion != 2);
-                break;
+        opcion = lt.leerEntero("Ingrese una opcion", "Ha ingresado un numero no valido");
+        int i = 0;
+        int cantidad1 = 0;
+        for (Productos producto : productos) {
+            i++;
+                    if(opcion == i){
+                    subtotal += Double.parseDouble(producto.getPrecioProducto());
+                    System.out.println("Usted ha agregado 1 " + producto.getNombreProducto());
+                    }
         }
+        if(opcion == salida)
+            facturar();
+        return opcion;
     }
-    
+
     public void facturar(){
         LectorTeclado lt = new LectorTeclado();
         int op;
@@ -87,6 +85,7 @@ public class GestionFacturacion {
         System.out.println("\t \t   CAI: 2H6P98-78J45O-47GH21-21WE63-03S4DF-32");
         System.out.println("\t \t \t \t \t Lo atendio: Carlos \n \n ");
 
+
         System.out.println("Subtotal 15% \t \t \t \t \t \t \t \t  L." + String.format("%.2f", subtotal));
         System.out.println("15% ISV \t \t \t \t \t \t \t \t \t \t " + String.format("%.2f", isv));
         System.out.println("Total \t \t \t \t \t \t \t \t \t \t \t L." + String.format("%.2f", total));
@@ -95,6 +94,7 @@ public class GestionFacturacion {
         System.out.println("\t \t Copia: Obligado tributario emisor");
         System.out.println("\t \t \t \t \t    *****");
         System.out.println("\t \t \t \t  - Cuenta Cerrada -");
+        System.out.println("\n \n");
     }
 }
 

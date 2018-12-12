@@ -1,6 +1,8 @@
 package edu.ujcv.progra1.edu.ujcv.progra1.models;
 
-public class Productos {
+import edu.ujcv.progra1.Menu.IMenuItem;
+
+public class Productos{
 
     private String nombreProducto;
     private String tipoProducto;
@@ -19,6 +21,11 @@ public class Productos {
     public Productos(){
 
     }
+
+    public Productos(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
     public String getNombreProducto() {
         return nombreProducto;
     }
@@ -59,4 +66,5 @@ public class Productos {
     public void setCodigoProducto(String codigoProducto) {
         this.codigoProducto = codigoProducto;
     }
+
 }

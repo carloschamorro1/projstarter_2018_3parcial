@@ -63,23 +63,32 @@ public class GestionClientes {
         datos.setPrimerApellido(lt.leerString("Por favor ingrese el primer apellido"));
         datos.setCodigoCliente(lt.leerString("Por favor ingrese el codigo del cliennte"));
         clientes.add(new Cliente(datos.getIdentidad(),datos.getPrimerNombre(),datos.getPrimerApellido(), datos.getCodigoCliente()));
-        EscritorCvsClientes.writeCsvFile("Clientes.csv",clientes);
+        EscritorCvsClientes.writeCsvFile("Clientes.csv",clientes,true);
         return clientes;
     }
 
     public void deleteClient(){
         LectorTeclado lt = new LectorTeclado();
-        Cliente datos = new Cliente();
         clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
-        for (Cliente cliente : clientes) {
-
-        }
+//        for (:
+//             ) {
+//
+//        }
+        EscritorCvsClientes.writeCsvFile("Clientes.csv",clientes,false);
     }
 
     public void getClient(){
         LectorTeclado lt = new LectorTeclado();
         Cliente datos = new Cliente();
+        clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
         int num = lt.leerEntero("Escriba el indice del cliente que desea obtener", "Error ha ingresado un numero no valido");
-        System.out.println(datos.getIdentidad());
+        int i = 0;
+        for (Cliente clientes : clientes) {
+            i++;
+            if(num == i){
+                System.out.println(clientes.getIdentidad() + "\t \t" + clientes.getPrimerNombre() + "\t \t \t \t"
+                        + clientes.getPrimerApellido() + "\t \t \t \t" + clientes.getCodigoCliente());
+            }
+        }
     }
 }
