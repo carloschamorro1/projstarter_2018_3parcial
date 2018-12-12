@@ -9,6 +9,7 @@ public class Productos{
     private String marcaProducto;
     private String precioProducto;
     private String codigoProducto;
+    private int contador = 0;
 
     public Productos(String codigoProducto, String nombreProducto, String tipoProducto, String marcaProducto, String precioProducto) {
         this.nombreProducto = nombreProducto;
@@ -20,10 +21,6 @@ public class Productos{
 
     public Productos(){
 
-    }
-
-    public Productos(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
     }
 
     public String getNombreProducto() {

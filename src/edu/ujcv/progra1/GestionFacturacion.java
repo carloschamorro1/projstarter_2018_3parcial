@@ -43,6 +43,7 @@ public class GestionFacturacion {
                     if(opcion == i){
                     subtotal += Double.parseDouble(producto.getPrecioProducto());
                     System.out.println("Usted ha agregado 1 " + producto.getNombreProducto());
+                    cantidad.add(new Productos(producto.getCodigoProducto(),producto.getNombreProducto(),producto.getTipoProducto(),producto.getMarcaProducto(),producto.getPrecioProducto()));
                     }
         }
         if(opcion == salida)
@@ -53,6 +54,9 @@ public class GestionFacturacion {
     public void facturar(){
         LectorTeclado lt = new LectorTeclado();
         int op;
+        isv = subtotal *0.15;
+        subtotal = subtotal - isv;
+        total = subtotal + isv;
             System.out.println("¿Desea la factura con nombre y RTN?");
             do {
                 op = lt.leerEntero("Escriba 1 para si o 2 para no", "Ha ingresado un caracter o numero no valido");
@@ -85,6 +89,9 @@ public class GestionFacturacion {
         System.out.println("\t \t   CAI: 2H6P98-78J45O-47GH21-21WE63-03S4DF-32");
         System.out.println("\t \t \t \t \t Lo atendio: Carlos \n \n ");
 
+        for (Productos producto: cantidad) {
+            System.out.println(producto.getNombreProducto() + "\t \t \t \t \t \t \t \t \t \t \t" + producto.getPrecioProducto() + "G");
+        }
 
         System.out.println("Subtotal 15% \t \t \t \t \t \t \t \t  L." + String.format("%.2f", subtotal));
         System.out.println("15% ISV \t \t \t \t \t \t \t \t \t \t " + String.format("%.2f", isv));
