@@ -68,13 +68,13 @@ public class GestionClientes {
     }
 
     public void deleteClient(){
-        LectorTeclado lt = new LectorTeclado();
         clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
-        int i = 0;
-        for (Cliente cliente: clientes) {
-            i++;
-            while(i<clientes.size())
-                EscritorCvsClientes.writeCsvFile("Clientes.csv",clientes,false);
+        int i= 0;
+
+            for (int j = 0; j < clientes.size() - 1 ; j++) {
+                for (Cliente cliente :clientes) {
+                    EscritorCvsClientes.writeCsvFileE("Clientes.csv", clientes, true);
+            }
         }
     }
 
