@@ -51,6 +51,7 @@ public class GestionProductos {
         public void getProducts(){
             productos = LectorCvsProductos.readCsvFile("Productos.csv");
             for (Productos producto : productos) {
+                System.out.println("Codigo Producto \t \t \t \t  Nombre Producto \t \t \t \t Tipo Producto \t \t \t \tMarca Producto \t \t \t \t Precio");
                 System.out.println(producto.getCodigoProducto() + "\t \t" + producto.getNombreProducto() + "\t \t \t \t"
                         + producto.getTipoProducto() + "\t \t \t \t" + producto.getMarcaProducto() + "\t \t \t \t" + producto.getPrecioProducto() );
             }
@@ -66,21 +67,23 @@ public class GestionProductos {
             datos.setPrecioProducto(lt.leerString("Ingrese el precio del producto"));
             productos.add(new Productos(datos.getCodigoProducto(),datos.getNombreProducto(),datos.getTipoProducto(),datos.getMarcaProducto(),datos.getPrecioProducto()));
             EscritorCvsProductos.writeCsvFile("Productos.csv",productos);
-
         }
 
         public void deleteProduct(){
-            LectorTeclado lt = new LectorTeclado();
-            Cliente datos = new Cliente();
-            for (int i = 0; i < productos.size(); i++) {
-                System.out.println(datos.getPrimerNombre());
-            }
+
         }
 
         public void getProduct(){
             LectorTeclado lt = new LectorTeclado();
-            Cliente datos = new Cliente();
+            productos = LectorCvsProductos.readCsvFile("Productos.csv");
             int num = lt.leerEntero("Escriba el indice del cliente que desea obtener", "Error ha ingresado un numero no valido");
-            System.out.println(datos.getIdentidad());
+            int i = 0;
+            for (Productos producto : productos) {
+                i++;
+                if(num == i){
+                    System.out.println(producto.getCodigoProducto() + "\t \t" + producto.getNombreProducto() + "\t \t \t \t"
+                            + producto.getTipoProducto() + "\t \t \t \t" + producto.getMarcaProducto() + "\t \t \t \t" + producto.getPrecioProducto());
+                }
+            }
         }
     }
