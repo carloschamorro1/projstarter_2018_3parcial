@@ -5,7 +5,9 @@ import edu.ujcv.progra1.util.LectorTeclado;
 import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.EscritorCvsClientes;
 import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.LectorCvsCliente;
 
+import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GestionClientes {
     private ArrayList<Cliente> clientes = new ArrayList<>();
@@ -67,16 +69,12 @@ public class GestionClientes {
         return clientes;
     }
 
-    public void deleteClient(){
+    public void deleteClient() {
         clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
-        int i= 0;
-
-            for (int j = 0; j < clientes.size() - 1 ; j++) {
-                for (Cliente cliente :clientes) {
-                    EscritorCvsClientes.writeCsvFileE("Clientes.csv", clientes, true);
-            }
-        }
+        int i = 0;
+        
     }
+
 
     public void getClient(){
         LectorTeclado lt = new LectorTeclado();
