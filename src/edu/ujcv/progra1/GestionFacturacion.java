@@ -21,10 +21,7 @@ public class GestionFacturacion {
     double subtotal = 0;
     public double total = 0;
     double isv = 0;
-    public String nombre = "";
-    public String rtn = "";
     public int opcion;
-
     public int presentarOpciones() {
         int opcion1 = 1;
         int salida = 999;

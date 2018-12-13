@@ -19,7 +19,7 @@ public class Menu {
     public void mostrarMenu() {
         int opcion = 1;
         for (IMenuItem menuItem: items) {
-            System.out.println(""+ opcion++ + ". "+menuItem.getLabel());
+            System.out.println(""+ opcion++ + ".........."+menuItem.getLabel());
         }
     }
 

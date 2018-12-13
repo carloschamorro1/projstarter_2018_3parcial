@@ -12,13 +12,14 @@ public class EscritorCvsProductos {
     private static final String NEW_LINE_SEPARATOR = "\n";
 
     //CSV file header
-    private static final String FILE_HEADER = "codigoProducto,nombreProducto,tipoProducto, marcaProducto,precioProducto";
-    public static void writeCsvFile(String fileName, ArrayList<Productos> productos) {
+    private static final String FILE_HEADER = "codigoProducto;nombreProducto;tipoProducto;marcaProducto;precioProducto";
+
+    public static void writeCsvFile(String fileName, ArrayList<Productos> productos, boolean append) {
 
         FileWriter fileWriter = null;
 
         try {
-            fileWriter = new FileWriter(fileName,true);
+            fileWriter = new FileWriter(fileName,append);
 
 //            //Write the CSV file header
 //            fileWriter.append(FILE_HEADER);
@@ -55,5 +56,50 @@ public class EscritorCvsProductos {
         }
 
     }
+
+
+    public static void writeCsvFileE(String fileName, ArrayList<Productos> productos, boolean append) {
+
+        FileWriter fileWriter = null;
+
+        try {
+            fileWriter = new FileWriter(fileName,append);
+
+            //Write the CSV file header
+            fileWriter.append(FILE_HEADER);
+
+            //Add a new line separator after the header
+            fileWriter.append(NEW_LINE_SEPARATOR);
+
+            //Write a new student object list to the CSV file
+            for (Productos producto : productos) {
+                fileWriter.append(String.valueOf(producto.getCodigoProducto()));
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(producto.getNombreProducto());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(producto.getTipoProducto());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(producto.getMarcaProducto());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(producto.getPrecioProducto());
+                fileWriter.append(NEW_LINE_SEPARATOR);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in CsvFileWriter !!!");
+            e.printStackTrace();
+        } finally {
+
+            try {
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error while flushing/closing fileWriter !!!");
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
 
 }

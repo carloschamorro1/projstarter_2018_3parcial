@@ -13,9 +13,9 @@ public class GestionReportes {
     private ArrayList<Reportes> reportes = new ArrayList<>();
 
     public void presentarOpciones() {
-        System.out.println("1.Presentar lista de facturas");
-        System.out.println("2.Imprimir reporte");
-        System.out.println("3.Salir");
+        System.out.println("1..........Presentar lista de facturas");
+        System.out.println("2..........Imprimir reporte");
+        System.out.println("3..........Salir");
     }
 
     public int leerYprocesarOpciones() {

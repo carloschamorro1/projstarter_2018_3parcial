@@ -34,17 +34,19 @@ public class GestionProductos {
                     System.out.println("\n La lista de productos es:");
                     System.out.println("Codigo Producto \t \t Nombre Producto \t \t Tipo Producto \t \t Marca Producto \t \t Precio");
                     getProducts();
-                    System.out.println("\n");
+                    System.out.println("");
                     break;
                 case 2:
                     addProduct();
-                    System.out.println("\n");
+                    System.out.println("");
                     break;
                 case 3:
+                    deleteProduct();
+                    System.out.println("");
                     break;
                 case 4:
                     getProduct();
-                    System.out.println("\n");
+                    System.out.println("");
                     break;
             }
             return opcion;
@@ -53,7 +55,6 @@ public class GestionProductos {
         public void getProducts(){
             productos = LectorCvsProductos.readCsvFile("Productos.csv");
             for (Productos producto : productos) {
-                System.out.println("Codigo Producto \t \t \t \t  Nombre Producto \t \t \t \t Tipo Producto \t \t \t \tMarca Producto \t \t \t \t Precio");
                 System.out.println(producto.getCodigoProducto() + "\t \t" + producto.getNombreProducto() + "\t \t \t \t"
                         + producto.getTipoProducto() + "\t \t \t \t" + producto.getMarcaProducto() + "\t \t \t \t" + producto.getPrecioProducto() );
             }
@@ -68,11 +69,20 @@ public class GestionProductos {
             datos.setMarcaProducto(lt.leerString("Por favor ingrese la marca"));
             datos.setPrecioProducto(lt.leerString("Ingrese el precio del producto"));
             productos.add(new Productos(datos.getCodigoProducto(),datos.getNombreProducto(),datos.getTipoProducto(),datos.getMarcaProducto(),datos.getPrecioProducto()));
-            EscritorCvsProductos.writeCsvFile("Productos.csv",productos);
+            EscritorCvsProductos.writeCsvFile("Productos.csv",productos,true);
         }
 
         public void deleteProduct(){
-
+            productos = LectorCvsProductos.readCsvFile("Productos.csv");
+            int i = 0;
+            for (Productos producto:productos) {
+                i++;
+                if(productos.size()== i){
+                    productos.remove(productos.size()-1);
+                    EscritorCvsProductos.writeCsvFileE("Productos.csv",productos,false);
+                    productos.add(new Productos("","","","",""));
+                }
+            }
         }
 
         public void getProduct(){

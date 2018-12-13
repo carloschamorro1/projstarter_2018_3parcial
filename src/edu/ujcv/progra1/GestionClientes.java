@@ -4,26 +4,16 @@ import edu.ujcv.progra1.edu.ujcv.progra1.models.Cliente;
 import edu.ujcv.progra1.util.LectorTeclado;
 import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.EscritorCvsClientes;
 import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.LectorCvsCliente;
-
-import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class GestionClientes {
     private ArrayList<Cliente> clientes = new ArrayList<>();
-//
-//    public GestionClientes(){
-//        ArrayList<IMenuItem> itemsMenuGestionClientes = new ArrayList<>();
-//        itemsMenuGestionClientes.add(new MenuGestionFacturacion());
-//        itemsMenuGestionClientes.add(new ExitItem());
-//    }
-
     public void presentarOpciones() {
-        System.out.println("1.Presentar lista de clientes");
-        System.out.println("2.Agregar cliente al final");
-        System.out.println("3.Eliminar cliente");
-        System.out.println("4.Obtener cliente en especifico");
-        System.out.println("5.Salir");
+        System.out.println("1..........Presentar lista de clientes");
+        System.out.println("2..........Agregar cliente al final");
+        System.out.println("3..........Eliminar cliente");
+        System.out.println("4..........Obtener cliente en especifico");
+        System.out.println("5..........Salir");
     }
 
     public int leerYprocesarOpciones() {
@@ -34,19 +24,19 @@ public class GestionClientes {
                 System.out.println("\n La lista de cliente es:");
                 System.out.println("Identidad \t \t Primer nombre \t \t Primer Apellido \t \t Codigo");
                 obtenerClientes();
-                System.out.println("\n");
+                System.out.println("");
                 break;
             case 2:
                 addClient();
-                System.out.println("\n");
+                System.out.println("");
                 break;
             case 3:
                 deleteClient();
-                System.out.println("\n");
+                System.out.println("");
                 break;
             case 4:
                 getClient();
-                System.out.println("\n");
+                System.out.println("");
                 break;
         }
         return opcion;
@@ -75,6 +65,14 @@ public class GestionClientes {
     public void deleteClient() {
         clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
         int i = 0;
+        for (Cliente cliente:clientes) {
+            i++;
+            if(clientes.size()== i){
+                clientes.remove(clientes.size()-1);
+                EscritorCvsClientes.writeCsvFileE("Clientes.csv",clientes,false);
+                clientes.add(new Cliente("","","",""));
+            }
+        }
 
     }
 
