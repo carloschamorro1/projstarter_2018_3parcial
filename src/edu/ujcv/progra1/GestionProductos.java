@@ -38,11 +38,13 @@ public class GestionProductos {
                     break;
                 case 2:
                     addProduct();
+                    System.out.println("\n");
                     break;
                 case 3:
                     break;
                 case 4:
                     getProduct();
+                    System.out.println("\n");
                     break;
             }
             return opcion;

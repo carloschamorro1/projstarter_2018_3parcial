@@ -38,12 +38,15 @@ public class GestionClientes {
                 break;
             case 2:
                 addClient();
+                System.out.println("\n");
                 break;
             case 3:
                 deleteClient();
+                System.out.println("\n");
                 break;
             case 4:
                 getClient();
+                System.out.println("\n");
                 break;
         }
         return opcion;
