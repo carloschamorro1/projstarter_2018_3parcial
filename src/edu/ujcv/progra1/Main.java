@@ -3,8 +3,6 @@ package edu.ujcv.progra1;
 import edu.ujcv.progra1.Menu.IMenuItem;
 import edu.ujcv.progra1.Menu.Menu;
 import edu.ujcv.progra1.MisMenus.*;
-import edu.ujcv.progra1.edu.ujcv.progra1.models.Productos;
-import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.EscritorCvsProductos;
 
 import java.util.ArrayList;
 
@@ -16,7 +14,6 @@ public class Main {
 	// write your code here
 
         ArrayList<IMenuItem> itemsMenuPrincipal = new ArrayList<>();
-        Menu menu = new Menu();
         itemsMenuPrincipal.add(new MenuGestionClientes());
         itemsMenuPrincipal.add(new MenuGestionProductos());
         itemsMenuPrincipal.add(new MenuGestionFacturacion());

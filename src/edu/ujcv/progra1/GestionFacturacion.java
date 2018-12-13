@@ -1,6 +1,8 @@
 package edu.ujcv.progra1;
 
 import edu.ujcv.progra1.Menu.IMenuItem;
+import edu.ujcv.progra1.Menu.Menu;
+import edu.ujcv.progra1.MisMenus.*;
 import edu.ujcv.progra1.edu.ujcv.progra1.models.Productos;
 import edu.ujcv.progra1.edu.ujcv.progra1.models.Reportes;
 import edu.ujcv.progra1.util.LectorTeclado;
@@ -17,11 +19,13 @@ public class GestionFacturacion {
     ArrayList<Productos> productos = new ArrayList<>();
     ArrayList<Productos> cantidad = new ArrayList<>();
     ArrayList<Reportes> reportes = new ArrayList<>();
+    public static int valorSalida = 0;
     Reportes rep = new Reportes();
     double subtotal = 0;
     public double total = 0;
     double isv = 0;
     public int opcion;
+
     public int presentarOpciones() {
         int opcion1 = 1;
         int salida = 999;
@@ -29,7 +33,7 @@ public class GestionFacturacion {
         for (Productos producto : productos) {
             System.out.println(opcion1++ + ".........." + producto.getNombreProducto() + "\t \t \t \t" + producto.getPrecioProducto());
         }
-        System.out.println(salida + ".........." + "Facturar");
+        System.out.println(salida + "..........Facturar");
         return opcion1;
     }
 
@@ -39,7 +43,6 @@ public class GestionFacturacion {
         productos = LectorCvsProductos.readCsvFile("Productos.csv");
         opcion = lt.leerEntero("Ingrese una opcion", "Ha ingresado un numero no valido");
         int i = 0;
-        int cantidad1 = 0;
         for (Productos producto : productos) {
             i++;
                     if(opcion == i){
@@ -61,14 +64,12 @@ public class GestionFacturacion {
         isv = subtotal *0.15;
         subtotal = subtotal - isv;
         total = subtotal + isv;
-        int i = 1;
         rep.setTotal(String.valueOf(total));
             System.out.println("¿Desea la factura con nombre y RTN?");
             do {
-                op = lt.leerEntero("Escriba 1para si o 2 para no", "Ha ingresado un caracter o numero no valido");
+                op = lt.leerEntero("Escriba 1 para si o 2 para no", "Ha ingresado un caracter o numero no valido");
                 if (op == 1) {
                     rep.setNombre(lt.leerString("Ingrese el nombre que desea en la factura"));
-                    sc.nextLine();
                     rep.setRtn(lt.leerString("Ingrese el RTN"));
                 }
                 if (op == 2) {
@@ -111,6 +112,7 @@ public class GestionFacturacion {
         reportes.add(new Reportes(rep.getNombre(), rep.getRtn(),rep.getCantidadProductos(),rep.getTotal()));
         EscritorCvsReportes.writeCsvFile("Reportes.csv",reportes,true);
     }
+
 }
 
 

@@ -45,7 +45,7 @@ public class GestionReportes {
 
     public void imprimirReporte(){
         reportes = LectorCvsReportes.readCsvFile("Reportes.csv");
-        double x = 0;
+        double x;
         int i = 0;
         int y = 0;
         System.out.println("\n \t \t \t \t \t \t  REPORTE \n \t \t \t \t \t \t  ======= \n");

@@ -1,6 +1,5 @@
 package edu.ujcv.progra1;
 
-import edu.ujcv.progra1.edu.ujcv.progra1.models.Cliente;
 import edu.ujcv.progra1.edu.ujcv.progra1.models.Productos;
 import edu.ujcv.progra1.util.LectorTeclado;
 import edu.ujcv.progra1.util.edu.ujcv.progra1.util.fileio.EscritorCvsProductos;
@@ -11,19 +10,13 @@ import java.util.ArrayList;
 public class GestionProductos {
 
         private ArrayList<Productos> productos = new ArrayList<>();
-//
-//    public GestionClientes(){
-//        ArrayList<IMenuItem> itemsMenuGestionClientes = new ArrayList<>();
-//        itemsMenuGestionClientes.add(new MenuGestionFacturacion());
-//        itemsMenuGestionClientes.add(new ExitItem());
-//    }
 
         public void presentarOpciones() {
-            System.out.println("1.Presentar lista de productos");
-            System.out.println("2.Agregar productos al final");
-            System.out.println("3.Eliminar producto");
-            System.out.println("4.Obtener producto en especifico");
-            System.out.println("5.Salir");
+            System.out.println("1..........Presentar lista de productos");
+            System.out.println("2..........Agregar productos al final");
+            System.out.println("3..........Eliminar producto");
+            System.out.println("4..........Obtener producto en especifico");
+            System.out.println("5..........Salir");
         }
 
         public int leerYprocesarOpciones() {
