@@ -92,5 +92,8 @@ public class GestionClientes {
                         + clientes.getPrimerApellido() + "\t \t \t \t" + clientes.getCodigoCliente());
             }
         }
+        if(clientes.size() < num)
+            System.out.println("No existe registro de clientes en ese indice");
     }
+
 }

@@ -78,7 +78,7 @@ public class GestionProductos {
         public void getProduct(){
             LectorTeclado lt = new LectorTeclado();
             productos = LectorCvsProductos.readCsvFile("Productos.csv");
-            int num = lt.leerEntero("Escriba el indice del cliente que desea obtener", "Error ha ingresado un numero no valido");
+            int num = lt.leerEntero("Escriba el indice del producto que desea obtener", "Error ha ingresado un numero no valido");
             int i = 0;
             for (Productos producto : productos) {
                 i++;
@@ -87,5 +87,7 @@ public class GestionProductos {
                             + producto.getTipoProducto() + "\t \t \t \t" + producto.getMarcaProducto() + "\t \t \t \t" + producto.getPrecioProducto());
                 }
             }
+            if(productos.size() < num)
+                System.out.println("No existe registro de productos en ese indice");
         }
     }
