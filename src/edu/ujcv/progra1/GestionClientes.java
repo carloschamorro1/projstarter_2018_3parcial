@@ -72,7 +72,7 @@ public class GestionClientes {
     public void deleteClient() {
         clientes = LectorCvsCliente.readCsvFile("Clientes.csv");
         int i = 0;
-        
+
     }
 
 

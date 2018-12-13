@@ -12,11 +12,11 @@ public class LectorCvsProductos {
     private static final String COMMA_DELIMITER = ";";
 
     //Student attributes index
-    private static final int CLIENT_CODPRO_IDX = 0;
-    private static final int CLIENT_PRONAME_IDX = 1;
-    private static final int CLIENT_TPRO_IDX = 2;
-    private static final int CLIENT_MAPRO_IDX = 3;
-    private static final int CLIENT_PREPRO_IDX = 4;
+    private static final int PRO_CODPRO_IDX = 0;
+    private static final int PRO_PRONAME_IDX = 1;
+    private static final int PRO_TPRO_IDX = 2;
+    private static final int PRO_MAPRO_IDX = 3;
+    private static final int PRO_PREPRO_IDX = 4;
 
 
     public static ArrayList<Productos> readCsvFile(String fileName) {
@@ -39,7 +39,7 @@ public class LectorCvsProductos {
                 String[] tokens = line.split(COMMA_DELIMITER);
                 if (tokens.length > 0) {
                     //Create a new student object and fill his  data
-                    Productos producto = new Productos(tokens[CLIENT_CODPRO_IDX], tokens[CLIENT_PRONAME_IDX], tokens[CLIENT_TPRO_IDX], tokens[CLIENT_MAPRO_IDX], tokens[CLIENT_PREPRO_IDX]);
+                    Productos producto = new Productos(tokens[PRO_CODPRO_IDX], tokens[PRO_PRONAME_IDX], tokens[PRO_TPRO_IDX], tokens[PRO_MAPRO_IDX], tokens[PRO_PREPRO_IDX]);
                     productos.add(producto);
                 }
             }
