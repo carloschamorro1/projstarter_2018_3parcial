@@ -25,7 +25,7 @@ public class GestionProductos {
             switch (opcion) {
                 case 1:
                     System.out.println("\n La lista de productos es:");
-                    System.out.println("Codigo Producto \t \t Nombre Producto \t \t Tipo Producto \t \t Marca Producto \t \t Precio");
+                    System.out.println("Codigo \t \t Producto \t \t \t Tipo \t \t \t \t Marca \t \t \t Precio");
                     getProducts();
                     System.out.println("");
                     break;
