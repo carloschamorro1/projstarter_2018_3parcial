@@ -60,13 +60,15 @@ public class GestionReportes {
         Date date = new Date();
         System.out.println("\t \t \t \t \t" + hourdateFormat.format(date));
         System.out.println("\n \t \t \t \t" + reportes.size()+ " Facturas en el mes " +hourdateFormat2.format(date)+"\n");
+        System.out.println("Nombre Cliente \t \t \t \t RTN Cliente \t \t Cantidad Productos Facturados \t \t \t Total Venta");
         for (Reportes reporte: reportes) {
             i++;
-            System.out.println(reporte.getNombre() + "\t \t \t" + reporte.getRtn() + "\t \t \t " + reporte.getCantidadProductos() + "\t \t \t" + reporte.getTotal());
+            System.out.println(reporte.getNombre() + "\t \t \t" + reporte.getRtn() + "\t \t \t \t \t \t" + reporte.getCantidadProductos() + "\t \t \t \t \t \t \t" + reporte.getTotal());
             x = Double.parseDouble(reporte.getTotal());
             y += x;
             if(i == reportes.size()){
-                System.out.println("\n Los ingresos en el mes de " + hourdateFormat2.format(date) +  " han sido de " + "L."+y +".00");
+                System.out.println("");
+                System.out.println("Los ingresos en el mes de " + hourdateFormat2.format(date) +  " han sido de " + "L."+y +".00");
                 System.out.println("Los impuestos ha pagar en el mes de " + hourdateFormat2.format(date) +  " han sido de " + "L."+(y*0.15));
                 System.out.println("\t \t \t \t \t    *****");
                 System.out.println("\t \t \t \t  - Reporte Cerrado -");
